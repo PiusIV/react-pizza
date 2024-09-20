@@ -119,17 +119,17 @@ function Pizza({ pizzaObj }) {
 }
 
 function Footer() {
-  const hour = new Date().getHours;
-  const openHour = 20;
+  const hour = new Date().getHours();
+  const openHour = 12;
   const closeHour = 22;
   const isOpen = hour >= openHour && hour <= closeHour;
 
   return (
-    <footer className="h-20 pt-6 mx-auto bg-gray-800">
+    <footer className="h-40 pt-6 mx-auto bg-gray-800 text-center">
       {isOpen ? (
         <Order closeHour={closeHour} openHour={openHour} />
       ) : (
-        <p className="text-center">
+        <p className="text-center italic w-1/2">
           We're happy to welcome you between {openHour}:00 and {closeHour}:00.
         </p>
       )}
@@ -139,12 +139,14 @@ function Footer() {
 
 function Order({ openHour, closeHour }) {
   return (
-    <div>
-      <p>
+    <div className="text-center flex flex-grow flex-col md:flex-row gap-2 justify-center align-center h-30 container p-6">
+      <p className="w-1/2 text-center">
         We're open for Business from {openHour}:00 to {closeHour}:00. Come visit
         us or Order online.
       </p>
-      <button>Order</button>
+      <button className="uppercase py-3 px-5 rounded-md bg-yellow-400 text-gray-800 pb-4">
+        Order
+      </button>
     </div>
   );
 }
